@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-// Хук для отсчета времени в секундах. Принимает общее количество секунд и возвращает оставшиеся секунды, а также флаги истечения и последних 30 секунд.
+// Хук для отсчёта времени в секундах. Принимает общее количество секунд и возвращает оставшиеся секунды, а также флаги истечения и последних 30 секунд.
 
 export const useCountdown = (totalSeconds: number) => {
   const [secondsLeft, setSecondsLeft] = useState(totalSeconds);
