@@ -1,25 +1,33 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-// Хук для отсчёта времени в секундах
-
-export const useCountdown = (totalSeconds: number) => {
+export function useCountdown(totalSeconds: number) {
   const [secondsLeft, setSecondsLeft] = useState(totalSeconds);
-
-  // Запускаем интервал, который каждую секунду уменьшает secondsLeft на 1
+  const timerId = useRef<number | null>(null);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setSecondsLeft((s) => s - 1);
+    timerId.current = window.setInterval(() => {
+      setSecondsLeft((prev) => {
+        if (prev <= 1) return 0;
+        return prev - 1;
+      });
     }, 1000);
-    return () => clearInterval(id);
+
+    return () => {
+      if (timerId.current) window.clearInterval(timerId.current);
+    };
   }, []);
+
+  useEffect(() => {
+    if (secondsLeft === 0 && timerId.current) {
+      window.clearInterval(timerId.current);
+      timerId.current = null;
+    }
+  }, [secondsLeft]);
 
   const isExpired = secondsLeft === 0;
   const isLast30 = secondsLeft > 0 && secondsLeft <= 30;
-
-  // Форматируем в mm:ss
 
   const mmss = useMemo(() => {
     const m = Math.floor(secondsLeft / 60);
@@ -27,5 +35,5 @@ export const useCountdown = (totalSeconds: number) => {
     return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
   }, [secondsLeft]);
 
-  return { secondsLeft, isExpired, isLast30, mmss };
-};
+  return { secondsLeft, mmss, isExpired, isLast30 };
+}
