@@ -2,14 +2,14 @@
 
 export default function GuaranteeBlock() {
   return (
-    <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
-      <div className="inline-flex items-center rounded-full border border-[#2fe37b]/60 bg-[#0b2a1a] px-4 py-2">
-        <span className="text-[#2fe37b] font-semibold">
+    <div className="mt-17 rounded-[30px] border border-[#484D4E] p-5">
+      <div className="inline-flex items-center rounded-[30px] border border-[#81FE95] px-6.5 py-3">
+        <span className="text-[#81FE95] font-medium text-[28px]">
           гарантия возврата 30 дней
         </span>
       </div>
 
-      <p className="mt-4 text-white/70 leading-6">
+      <p className="mt-8 text-[#DCDCDC] leading-7.5 text-[24px]">
         Мы уверены, что наш план сработает для тебя и ты увидишь видимые
         результаты уже через 4 недели! Мы даже готовы полностью вернуть твои
         деньги в течение 30 дней с момента покупки, если ты не получишь видимых

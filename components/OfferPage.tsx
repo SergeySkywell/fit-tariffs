@@ -49,48 +49,48 @@ export default function OfferPage({ tariffs }: { tariffs: Tariff[] }) {
           Выбери подходящий для себя{" "}
           <span className="text-[#FDB056]">тариф</span>
         </h1>
-
-        <div className="mt-26 flex flex-col sm:flex-row sm:items-start sm:gap-10 justify-between">
-          {/* Фотография */}
-          <div className="sm:w-95 pt-14.5">
-            <Image
-              src="/man.png"
-              alt="Fitness coach"
-              className="sm:max-w-full"
-              width={380}
-              height={767}
-            />
-          </div>
-
-          {/* Правая часть */}
-          <div className="max-w-187">
-            <TariffGrid
-              tariffs={tariffs}
-              selectedId={selectedId}
-              onSelect={setSelectedId}
-              isExpired={isExpired}
-            />
-
-            <div className="flex gap-4 mt-5 py-4.5 px-5 bg-[#2D3233] rounded-[20px] max-w-124.75 text-[16px] font-medium tracking-normal text-white">
-              <div className="text-[#FDB056] text-2xl pl-1.5">!</div>
-              <div>
-                Следуя плану на 3 месяца и более, люди получают в 2 раза лучший
-                результат, чем за 1 месяц
-              </div>
+        <div className="flex flex-col">
+          <div className="mt-26 flex flex-col sm:flex-row sm:items-start sm:gap-10 justify-between">
+            {/* Фотография */}
+            <div className="sm:w-95 pt-14.5">
+              <Image
+                src="/man.png"
+                alt="Fitness coach"
+                className="sm:max-w-full"
+                width={380}
+                height={767}
+              />
             </div>
 
-            <PurchaseBar
-              agree={agree}
-              setAgree={(v) => {
-                setAgree(v);
-                if (v) setAgreeError(false);
-              }}
-              agreeError={agreeError}
-              onBuy={onBuy}
-            />
+            {/* Правая часть */}
+            <div className="max-w-187">
+              <TariffGrid
+                tariffs={tariffs}
+                selectedId={selectedId}
+                onSelect={setSelectedId}
+                isExpired={isExpired}
+              />
 
-            <GuaranteeBlock />
+              <div className="flex gap-4 mt-5 py-4.5 px-5 bg-[#2D3233] rounded-[20px] max-w-124.75 text-[16px] font-medium tracking-normal text-white">
+                <div className="text-[#FDB056] text-2xl pl-1.5">!</div>
+                <div>
+                  Следуя плану на 3 месяца и более, люди получают в 2 раза
+                  лучший результат, чем за 1 месяц
+                </div>
+              </div>
+
+              <PurchaseBar
+                agree={agree}
+                setAgree={(v) => {
+                  setAgree(v);
+                  if (v) setAgreeError(false);
+                }}
+                agreeError={agreeError}
+                onBuy={onBuy}
+              />
+            </div>
           </div>
+          <GuaranteeBlock />
         </div>
       </section>
     </main>
