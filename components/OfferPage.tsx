@@ -71,6 +71,14 @@ export default function OfferPage({ tariffs }: { tariffs: Tariff[] }) {
               isExpired={isExpired}
             />
 
+            <div className="flex gap-4 mt-5 py-4.5 px-5 bg-[#2D3233] rounded-[20px] w-124.75 text-[16px] font-medium tracking-normal text-white">
+              <div className="text-[#FDB056] text-2xl pl-1.5">!</div>
+              <div>
+                Следуя плану на 3 месяца и более, люди получают в 2 раза лучший
+                результат, чем за 1 месяц
+              </div>
+            </div>
+
             <PurchaseBar
               agree={agree}
               setAgree={(v) => {

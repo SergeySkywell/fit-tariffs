@@ -29,7 +29,7 @@ export default function TariffCard({
       type="button"
       onClick={onSelect}
       className={clsx(
-        "relative rounded-[34px] border-2 h-84 pt-17.5 px-4.5 pb-5.75 flex flex-col items-center text-left transition gap-10",
+        "relative rounded-[34px] border-2 h-84 pt-17.5 px-4.5 pb-5.75 flex flex-col items-center transition gap-10",
         "bg-[#313637] border-[#484D4E]",
         selected && "border-[#FDB056]",
         tariff.is_best &&
@@ -48,13 +48,13 @@ export default function TariffCard({
         </span>
       )}
 
-      <div className={clsx("flex flex-col justify-center text-center w-full", tariff.is_best && "flex-8/12 ")}>
+      <div className={clsx("flex flex-col align-center ", tariff.is_best && "flex-8/12 ")}>
         <div className="text-[26px] font-medium">{tariff.period}</div>
         <div>
           {!isExpired ? (
               <div className="flex flex-col text-[50px] font-semibold align-center">
                 {tariff.price} ₽
-                <div className="text-[#919191] line-through font-medium text-[24px] self-end">
+                <div className="text-[#919191] line-through font-medium text-[24px] text-right">
                   {tariff.full_price} ₽
                 </div>
               </div>
@@ -65,7 +65,9 @@ export default function TariffCard({
           )}
         </div>
       </div>
-      <div className="text-white text-[16px]">{tariff.text}</div>
+
+      <div className="text-white text-[16px] text-left">{tariff.text}</div>
+
     </button>
   );
 }
