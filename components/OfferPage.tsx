@@ -44,26 +44,26 @@ export default function OfferPage({ tariffs }: { tariffs: Tariff[] }) {
     <main className="min-h-screen bg-[#232829] text-white">
       <StickyHeader time={mmss} isLast30={isLast30} />
 
-      <section className="mx-auto max-w-312 px-4 pt-8 pb-12">
-        <h1 className="text-2xl sm:text-3xl font-semibold">
+      <section className="mx-auto max-w-312 px-4 pt-11 pb-12 tracking-wide">
+        <h1 className="text-2xl sm:text-[40px] font-bold">
           Выбери подходящий для себя{" "}
           <span className="text-[#FDB056]">тариф</span>
         </h1>
 
-        <div className="mt-8 flex flex-col lg:flex-row lg:items-start lg:gap-10">
+        <div className="mt-26 flex flex-col sm:flex-row sm:items-start sm:gap-10 justify-between">
           {/* Фотография */}
-          <div className="flex justify-center lg:justify-start lg:w-[320px] shrink-0">
+          <div className="sm:w-95 pt-14.5">
             <Image
               src="/man.png"
               alt="Fitness coach"
-              className="lg:max-w-full"
+              className="sm:max-w-full"
               width={380}
               height={767}
             />
           </div>
 
           {/* Правая часть */}
-          <div className="flex-1">
+          <div className="max-w-187">
             <TariffGrid
               tariffs={tariffs}
               selectedId={selectedId}

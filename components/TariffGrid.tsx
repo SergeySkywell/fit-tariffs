@@ -21,7 +21,7 @@ export default function TariffGrid({
   );
 
   return (
-    <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-3 ">
       {sorted.map((t) => (
         <TariffCard
           key={t.id}

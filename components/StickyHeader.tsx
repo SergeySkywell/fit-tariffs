@@ -15,11 +15,8 @@ export default function StickyHeader({ time, isLast30 }: Props) {
         <span
           className={clsx(
             "text-white font-semibold text-center",
-            // 320
             "text-[14px] leading-tight",
-            // 375+
             "min-[375px]:text-[18px]",
-            // 640+
             "sm:text-[24px]",
           )}
         >

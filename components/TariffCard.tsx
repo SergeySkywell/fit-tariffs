@@ -29,44 +29,43 @@ export default function TariffCard({
       type="button"
       onClick={onSelect}
       className={clsx(
-        "relative rounded-2xl border p-4 text-left transition",
-        "bg-white/5 border-white/10 hover:border-white/20",
+        "relative rounded-[34px] border-2 h-84 pt-17.5 px-4.5 pb-5.75 flex flex-col items-center text-left transition gap-10",
+        "bg-[#313637] border-[#484D4E]",
         selected && "border-[#FDB056]",
-        tariff.is_best && "md:col-span-3",
+        tariff.is_best &&
+          "sm:col-span-3 sm:h-48 sm:flex-row sm:pt-8.5 sm:px-20 sm:pb-7.5",
       )}
     >
-      {/* Плашка скидки */}
       {!isExpired && discount > 0 && (
-        <span className="absolute left-4 top-3 rounded-md bg-[#ff5a5f] px-2 py-1 text-xs font-semibold">
+        <span className="absolute -top-0.5 left-12 rounded-md bg-[#FD5656] px-2 py-1 text-[22px] font-extralight">
           -{discount}%
         </span>
       )}
 
-      {/* Хит */}
       {tariff.is_best && (
-        <span className="absolute right-4 top-3 rounded-md bg-[#FDB056] px-2 py-1 text-xs font-semibold text-black">
+        <span className="absolute right-3 top-1 rounded-md px-2 py-1 text-[22px] font-medium text-[#FDB056]">
           хит!
         </span>
       )}
 
-      <div className="mt-6 md:mt-2">
-        <div className="text-lg font-semibold">{tariff.period}</div>
-        <div className="mt-1 text-white/70 text-sm">{tariff.text}</div>
-      </div>
-
-      {/* Цены */}
-      <div className="mt-4">
-        {!isExpired ? (
-          <>
-            <div className="text-3xl font-extrabold">{tariff.price} ₽</div>
-            <div className="text-white/50 line-through">
+      <div className={clsx("flex flex-col justify-center text-center w-full", tariff.is_best && "flex-8/12 ")}>
+        <div className="text-[26px] font-medium">{tariff.period}</div>
+        <div>
+          {!isExpired ? (
+              <div className="flex flex-col text-[50px] font-semibold align-center">
+                {tariff.price} ₽
+                <div className="text-[#919191] line-through font-medium text-[24px] self-end">
+                  {tariff.full_price} ₽
+                </div>
+              </div>
+          ) : (
+            <div className="text-[50px] font-semibold text-center">
               {tariff.full_price} ₽
             </div>
-          </>
-        ) : (
-          <div className="text-3xl font-extrabold">{tariff.full_price} ₽</div>
-        )}
+          )}
+        </div>
       </div>
+      <div className="text-white text-[16px]">{tariff.text}</div>
     </button>
   );
 }
